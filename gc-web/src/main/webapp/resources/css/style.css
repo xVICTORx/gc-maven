@@ -1,0 +1,12 @@
+html {
+	font-size: 11px;
+}
+
+body {
+	margin: 0 auto;
+}
+
+.menu {
+	height: 300px;
+	width: 100%;
+}

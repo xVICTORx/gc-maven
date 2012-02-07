@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="style.css" library="css" />
+	<title>Project GC</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:layout fullPage="true">
+
+			<p:layoutUnit position="north">
+
+			</p:layoutUnit>
+
+			<p:layoutUnit position="west" size="200" header="Menu"
+				resizable="true" collapsible="false">
+				<p:menu type="sliding" backLabel="#{msg['template.menu.backLabel']}"
+					style="width:185px; height: 200px;" id="menu" widgetVar="menu">
+					<p:menuitem action="Index" value="#{msg['template.menu.index']}"
+						icon="ui-icon-home" ajax="false" />
+					<p:submenu label="Catalogos" icon="ui-icon-gear">
+						<p:menuitem action="CatalogoDependencia" value="Dependencia"
+							icon="ui-icon-carat-1-e" ajax="false" />
+					</p:submenu>
+				</p:menu>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center" size="500" header="#{header}">
+				<ui:insert name="body" />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="south" size="80" style="text-align: center;">
+				<h4>Todos los derechos reservados</h4>
+			</p:layoutUnit>
+
+		</p:layout>
+	</h:form>
+</h:body>
+</html>
