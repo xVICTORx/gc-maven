@@ -1,5 +1,7 @@
 package com.givsoft.gc.persistence.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +15,9 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 @Entity
 @Table(name = "estado")
-public class Estado {
+public class Estado implements Serializable {
+	
+	private static final long serialVersionUID = 3401407247433283396L;
 
 	public enum EstadoMapping {
 		idEstado("idEstado"), nombre("nombre"), clave("clave"), pais("pais");

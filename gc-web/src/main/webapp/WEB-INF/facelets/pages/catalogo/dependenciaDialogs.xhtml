@@ -1,0 +1,84 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:decorate template="/WEB-INF/facelets/layout/dialog.xhtml">
+		<ui:param name="id" value="addDialog" />
+		<ui:param name="widgetVar" value="addDialog" />
+		<ui:param name="visible" value="#{Dependencia.isOpenAddDialog}" />
+		<ui:param name="header" value="Dependencia" />
+		<ui:param name="modal" value="true" />
+		<ui:param name="showEffect" value="" />
+		<ui:param name="closable" value="false" />
+		<ui:param name="width" value="350" />
+		<ui:param name="height" value="0" />
+		<ui:define name="body">
+			<p:panelGrid columns="2" style="width: 100%;">
+
+				<h:outputLabel value="#{msg['catalogo.dependencia.input.nombre']}"
+					for="nombreDependencia" />
+				<p:inputText id="nombreDependencia"
+					value="#{Dependencia.dependencia.nombre}" styleClass="inputFrm"
+					required="true"
+					requiredMessage="#{Mensaje.getMensaje(msg ,'common.required.input' , Mensaje.getMensaje(msg, 'catalogo.dependencia.input.nombre'))}">
+					<p:ajax event="change" update="@this :mainForm" />
+				</p:inputText>
+
+				<h:outputLabel value="#{msg['catalogo.dependencia.input.telefono']}"
+					for="telefonoDependencia" />
+				<p:inputMask id="telefonoDependencia"
+					value="#{Dependencia.dependencia.telefono}" styleClass="inputFrm"
+					mask="(999) 9999-9999">
+					<p:ajax event="change" update="@this :mainForm" />
+				</p:inputMask>
+
+				<h:outputLabel
+					value="#{msg['catalogo.dependencia.input.direccion']}"
+					for="direccionDependencia" />
+				<p:inputTextarea id="direccionDependencia"
+					value="#{Dependencia.dependencia.direccion}" styleClass="inputFrm">
+					<p:ajax event="change" update="@this :mainForm" />
+				</p:inputTextarea>
+
+				<h:outputLabel value="#{msg['catalogo.dependencia.input.cp']}"
+					for="cpDependencia" />
+				<p:inputMask id="cpDependencia"
+					value="#{Dependencia.dependencia.cp}" styleClass="inputFrm"
+					mask="99999" required="true"
+					requiredMessage="#{Mensaje.getMensaje(msg ,'common.required.input' , Mensaje.getMensaje(msg, 'catalogo.dependencia.input.cp'))}">
+					<p:ajax event="change" update="@this :mainForm" />
+				</p:inputMask>
+
+				<h:outputLabel
+					value="#{msg['catalogo.dependencia.input.municipio']}"
+					for="municipioDependencia" />
+				<p:inputText id="municipioDependencia"
+					value="#{Dependencia.dependencia.municipio}" styleClass="inputFrm">
+					<p:ajax event="change" update="@this :mainForm" />
+				</p:inputText>
+
+				<h:outputLabel value="#{msg['catalogo.dependencia.input.estado']}"
+					for="estadoDependencia" />
+				<p:selectOneMenu id="estadoDependencia"
+					value="#{Dependencia.dependencia.estado.idEstado}"
+					styleClass="inputFrm" required="true"
+					requiredMessage="#{Mensaje.getMensaje(msg ,'common.required.selectone' , Mensaje.getMensaje(msg, 'catalogo.dependencia.input.estado'))}">
+					<p:ajax event="change" update="@this :mainForm" />
+					<f:selectItems value="#{Lista.estados}" />
+				</p:selectOneMenu>
+			</p:panelGrid>
+			<p:outputPanel styleClass="dialogFooter">
+				<p:commandButton action="#{Dependencia.saveDependencia}"
+					update=":dialogsForm :mainForm" value="#{msg['common.save']}"
+					icon="ui-icon-check" process="@form" />
+
+				<p:commandButton action="#{Dependencia.closeAddDialog}"
+					update=":dialogsForm :mainForm" value="#{msg['common.cancel']}"
+					icon="ui-icon-closethick" immediate="true" />
+			</p:outputPanel>
+		</ui:define>
+	</ui:decorate>
+
+</ui:composition>

@@ -5,11 +5,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/facelets/layout/template.xhtml">
-
-	<ui:param name="header" value="Catalogo de dependencias"></ui:param>
 	
+	<ui:param name="header" value="#{msg['catalogo.dependencia.header']}"/>
+
 	<ui:define name="body">
 		<ui:include src="/WEB-INF/facelets/pages/catalogo/dependencia.xhtml" />
+	</ui:define>
+	
+	<ui:define name="dialogs">
+		<ui:include src="/WEB-INF/facelets/pages/catalogo/dependenciaDialogs.xhtml" />
 	</ui:define>
 
 </ui:composition>

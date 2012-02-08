@@ -1,5 +1,7 @@
 package com.givsoft.gc.persistence.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +15,9 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 @Entity
 @Table(name = "dependencia")
-public class Dependencia {
+public class Dependencia implements Serializable {
+	
+	private static final long serialVersionUID = -5943045317826397174L;
 
 	public enum DependenciaMapping {
 		idDependencia("idDependencia"), nombre("nombre"), telefono("telefono"), direccion(

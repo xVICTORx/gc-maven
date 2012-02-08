@@ -14,11 +14,6 @@ import com.givsoft.gc.persistence.entity.Dependencia;
 public class DependenciaManagerImpl extends
 		AbstractManager<Integer, Dependencia, DependenciaDAO> implements
 		DependenciaManager {
-	
-	public DependenciaManagerImpl() {
-		super();
-		System.out.println("Cargando dependencia manager");
-	}
 
 	@Autowired
 	private DependenciaDAO dao;

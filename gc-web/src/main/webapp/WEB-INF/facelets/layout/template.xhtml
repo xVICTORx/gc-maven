@@ -10,15 +10,15 @@
 	<title>Project GC</title>
 </h:head>
 <h:body>
-	<h:form>
-		<p:layout fullPage="true">
+	<p:layout fullPage="true">
 
-			<p:layoutUnit position="north">
+		<p:layoutUnit position="north">
 
-			</p:layoutUnit>
+		</p:layoutUnit>
 
-			<p:layoutUnit position="west" size="200" header="Menu"
-				resizable="true" collapsible="false">
+		<p:layoutUnit position="west" size="200" header="Menu"
+			resizable="true" collapsible="false">
+			<h:form>
 				<p:menu type="sliding" backLabel="#{msg['template.menu.backLabel']}"
 					style="width:185px; height: 200px;" id="menu" widgetVar="menu">
 					<p:menuitem action="Index" value="#{msg['template.menu.index']}"
@@ -28,17 +28,23 @@
 							icon="ui-icon-carat-1-e" ajax="false" />
 					</p:submenu>
 				</p:menu>
-			</p:layoutUnit>
+			</h:form>
+		</p:layoutUnit>
 
-			<p:layoutUnit position="center" size="500" header="#{header}">
+		<p:layoutUnit position="center" size="500" header="#{header}">
+			<h:form id="mainForm">
+				<p:growl id="messages" showDetail="false"/>
 				<ui:insert name="body" />
-			</p:layoutUnit>
+			</h:form>
+		</p:layoutUnit>
 
-			<p:layoutUnit position="south" size="80" style="text-align: center;">
-				<h4>Todos los derechos reservados</h4>
-			</p:layoutUnit>
+		<p:layoutUnit position="south" size="80" style="text-align: center;">
+			<h4>Todos los derechos reservados</h4>
+		</p:layoutUnit>
 
-		</p:layout>
+	</p:layout>
+	<h:form id="dialogsForm">
+		<ui:insert name="dialogs" />
 	</h:form>
 </h:body>
 </html>

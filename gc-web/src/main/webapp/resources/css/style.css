@@ -6,7 +6,18 @@ body {
 	margin: 0 auto;
 }
 
-.menu {
-	height: 300px;
+.inputFrm {
 	width: 100%;
+}
+
+.labelFrm {
+	width: 100%;
+}
+
+.dialogFooter {
+	width: 100%;
+	border-top: solid .5px;
+	float: left;
+	text-align: right;
+	margin-top: 20px;
 }
